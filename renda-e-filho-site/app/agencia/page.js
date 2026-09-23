@@ -2,15 +2,13 @@ import Link from "next/link";
 const cards = [
   { title: "Estrutura para eventos", desc: "Palco, box truss, sonorizacao, iluminacao cenica e cenografia tecnica.", href: "/agencia/estrutura-para-eventos" },
   { title: "Producao audiovisual", desc: "Captacao, transmissao, eventos hibridos e producao cinematografica institucional.", href: "/agencia/producao-audiovisual" },
-
   { title: "Imersoes e experiencias", desc: "Projecao mapeada, shows de laser e efeitos especiais.", href: "/agencia/imersoes-e-experiencias" },
   { title: "Equipe tecnica", desc: "Reforco tecnico sob demanda, do planejamento a operacao no dia do evento.", href: "/agencia/equipe-tecnica" },
   ];
 export default function AgenciaHub() {
-
- (
-   <main>
-   <section className="relative min-h-[85vh] flex items-center justify-center text-center px-6" style={{ background: "linear-gradient(135deg, #0B0D22 0%, #1E2761 55%, #3A3F9E 100%)" }}>
+  return(
+    <main>
+    <section className="relative min-h-[85vh] flex items-center justify-center text-center px-6" style={{ background: "linear-gradient(135deg, #0B0D22 0%, #1E2761 55%, #3A3F9E 100%)" }}>
 <div className="relative max-w-3xl">
   <p className="text-[#C9A24B] text-xs tracking-[3px] uppercase mb-4">[ R&amp;F Agencia ]</p>
 <h1 className="text-white text-5xl md:text-6xl font-bold leading-tight mb-4">Solucoes audiovisuais completas para eventos corporativos</h1>
@@ -34,5 +32,5 @@ export default function AgenciaHub() {
 </div>
 </section>
 </main>
-);
+    );
 }
