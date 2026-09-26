@@ -68,7 +68,7 @@ const perguntas = [
 
 export default function FamiliaRenda() {
 
- (
+return  (
       <main className="bg-[#17161c] text-[#efe7d7]">
         <section
          id="topo"
