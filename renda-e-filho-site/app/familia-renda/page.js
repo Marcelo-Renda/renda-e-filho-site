@@ -1,337 +1,600 @@
-import Link from "next/link";
+const PHOTO_HERO = "https://lh3.googleusercontent.com/d/1kcdawwS4aB01ftTcmQCr0yn1nIy1b9aB=w1600";
+const PHOTO_SOBRE = "https://lh3.googleusercontent.com/d/10Hy1knYgQwxqjPi4av5sPrLAfpHs6Rdo=w1200";
+const PHOTO_P1 = "https://lh3.googleusercontent.com/d/1b3wT6U5WFDUfzhq_Gy158VNOAf8lJgJK=w900";
+const PHOTO_P2 = "https://lh3.googleusercontent.com/d/1DtwQPlJrQphbPwKGRbjjpu6rShs791zG=w900";
+const PHOTO_P3 = "https://lh3.googleusercontent.com/d/1lk2IIC9x301_lWpGuLn4hdMt7rAlwuut=w900";
+const PHOTO_P4 = "https://lh3.googleusercontent.com/d/1R6yPR5WH6Y_jGCkEw0USNvC_iun2u_M2=w900";
 
-const PHOTO_HERO =
-   "https://lh3.googleusercontent.com/d/1kcdawwS4aB01ftTcmQCr0yn1nIy1b9aB=w1600";
-const PHOTO_HISTORIA =
-   "https://lh3.googleusercontent.com/d/10Hy1knYgQwxqjPi4av5sPrLAfpHs6Rdo=w1200";
-const PHOTO_CONTINUIDADE =
-   "https://lh3.googleusercontent.com/d/1lk2IIC9x301_lWpGuLn4hdMt7rAlwuut=w900";
-const PHOTO_PORTFOLIO_1 =
-   "https://lh3.googleusercontent.com/d/1b3wT6U5WFDUfzhq_Gy158VNOAf8lJgJK=w900";
-const PHOTO_PORTFOLIO_2 =
-   "https://lh3.googleusercontent.com/d/1DtwQPlJrQphbPwKGRbjjpu6rShs791zG=w900";
-const PHOTO_PORTFOLIO_3 =
-   "https://lh3.googleusercontent.com/d/1R6yPR5WH6Y_jGCkEw0USNvC_iun2u_M2=w900";
+const WA =
+  "https://wa.me/5511960684469?text=Ol%C3%A1!%20Encontrei%20a%20Renda%20%26%20Filho%20pelo%20site%20e%20gostaria%20de%20conversar%20sobre%20meu%20casamento.";
 
 const navLinks = [
- { label: "Historia", href: "#historia" },
- { label: "Casamentos", href: "#servicos" },
- { label: "Como funciona", href: "#metodo" },
- { label: "Portfolio", href: "#portfolio" },
- { label: "Perguntas", href: "#perguntas" },
- ];
-const metodo = [
- {
-      n: "1",
-      title: "Uma conversa sem letra miúda",
-      text: "Antes de fechar qualquer coisa, contamos exatamente como funciona: o que está incluso, quanto tempo dura a sessão, e tiramos toda dúvida sobre forma de pagamento. Nada de descobrir surpresa depois.",
-    },
- {
-      n: "2",
-      title: "Um local escolhido com carinho",
-      text: "Preferimos um lugar bem pensado a três locais diferentes correndo contra o relógio. Vocês escolhem o cenário que faz sentido pra história de vocês, e ajudamos a decidir se tiverem dúvida.",
-    },
- {
-      n: "3",
-      title: "O dia da sessão, sem pressa",
-      text: "As sessões normalmente duram de três a quatro horas, sempre em horário de luz boa, nunca sol a pino. Vocês podem sugerir poses e ideias: as fotos que mais emocionam sempre têm um pouco de vocês na construção.",
-    },
- {
-      n: "4",
-      title: "O clima manda no calendário",
-      text: "Não fotografamos com chuva forte ou céu muito fechado. Se o tempo não colaborar, remarcamos sem custo. Preferimos a data certa a arriscar fotos que vocês não vão amar depois.",
-    },
- ];
+  { label: "Sobre", href: "#sobre" },
+  { label: "Serviços", href: "#servicos" },
+  { label: "Processo", href: "#processo" },
+  { label: "Portfólio", href: "#portfolio" },
+  { label: "FAQ", href: "#faq" },
+  { label: "Contato", href: "#contato" },
+];
 
-const perguntas = [
- {
-      q: "Dá pra parcelar?",
-      a: "Sim. Conversamos sobre a forma de pagamento que funciona melhor pra vocês logo na primeira conversa, antes de fechar qualquer coisa.",
-    },
- {
-      q: "E se chover no dia do ensaio?",
-      a: "Remarcamos sem custo nenhum. Um bom ensaio pede sol, ou no máximo sol entre nuvens, então preferimos esperar o clima ideal a arriscar o resultado.",
-    },
- {
-      q: "Posso levar meu pet?",
-      a: "Pode, e costuma dar um toque especial! Só pedimos que alguém fique responsável por ele durante a sessão, com ração e água à mão.",
-    },
- {
-      q: "Quantas trocas de roupa posso fazer?",
-      a: "Recomendamos de duas a três: um look mais casual e um mais formal costuma funcionar bem. Separem tudo com calma, um dia antes.",
-    },
- {
-      q: "Vocês fotografam só o ensaio, ou o casamento inteiro?",
-      a: "Os dois. Muitos casais começam com o pré-wedding e seguem com a gente pra cerimônia e festa, mas cada um pode ser contratado separadamente.",
-    },
- ];
+const prova = [
+  { t: "Desde 1990 produzindo eventos", d: "Experiência construída em milhares de produções sociais e corporativas." },
+  { t: "Duas gerações, um mesmo projeto", d: "Experiência técnica, produção, criatividade e cuidado reunidos em uma empresa familiar." },
+  { t: "São Paulo e outros destinos", d: "Projetos construídos de acordo com o local, formato e necessidades de cada casal." },
+];
+
+const servicos = [
+  {
+    t: "Assessoria completa",
+    s: "Para quem quer alguém ao lado desde as primeiras decisões.",
+    p: [
+      "Participamos da construção do casamento desde o início: planejamento, orçamento, cronograma, escolha e relacionamento com fornecedores, visitas, alinhamentos, logística e preparação de cada etapa até a execução do evento.",
+      "O objetivo não é tomar as decisões por vocês.",
+      "É fazer com que vocês tenham informação, organização e suporte para tomar decisões melhores, sem precisar administrar sozinhos dezenas de pontas ao mesmo tempo.",
+    ],
+  },
+  {
+    t: "Assessoria final",
+    s: "Para quem já organizou boa parte do casamento, mas não quer carregar a operação até o altar.",
+    p: [
+      "Entramos na etapa final para organizar o que já foi contratado, revisar informações, conectar fornecedores, estruturar cronogramas e assumir a coordenação necessária para o evento acontecer como planejado.",
+    ],
+  },
+  {
+    t: "Cerimonial e coordenação do dia",
+    s: "Quando chega o casamento, alguém precisa estar olhando para o relógio para que vocês não precisem.",
+    p: [
+      "Nossa equipe acompanha montagem, fornecedores, cerimônia, recepção, momentos programados e andamento geral do evento.",
+      "Enquanto vocês recebem abraços, encontram pessoas e vivem o casamento, existe uma equipe acompanhando aquilo que não deveria ocupar a cabeça de vocês naquele momento.",
+    ],
+  },
+  {
+    t: "Pré-wedding e eventos relacionados",
+    s: "O casamento nem sempre cabe em uma única data.",
+    p: [
+      "Welcome drinks, encontros familiares, pré-wedding, celebrações menores e outras experiências podem fazer parte da mesma jornada.",
+      "Podemos pensar essas ocasiões de forma independente ou conectadas ao conceito do casamento.",
+    ],
+  },
+];
+
+const engrenagens = [
+  { t: "Planejamento", d: "Organização das etapas, prioridades, orçamento e decisões que precisam acontecer até a data." },
+  { t: "Curadoria de fornecedores", d: "Busca e avaliação de parceiros adequados ao perfil, necessidades e orçamento do casamento." },
+  { t: "Orçamento e negociações", d: "Acompanhamento de propostas e apoio para comparar alternativas com mais clareza." },
+  { t: "Cronograma", d: "Construção da linha do tempo do planejamento e, posteriormente, do roteiro operacional do evento." },
+  { t: "Visitas e alinhamentos", d: "Reuniões técnicas e acompanhamento dos pontos que precisam ser definidos com espaço e fornecedores." },
+  { t: "Gestão de fornecedores", d: "Centralização das informações para que decoração, buffet, foto, vídeo, música, estrutura e demais equipes saibam o que precisa acontecer." },
+  { t: "Cerimônia", d: "Organização dos participantes, entradas, tempos e principais momentos previstos." },
+  { t: "Operação do evento", d: "Acompanhamento de montagem, execução, mudanças de etapa e encerramento." },
+  { t: "Gestão de imprevistos", d: "Problemas acontecem. Nosso trabalho é identificá-los, decidir rapidamente e, sempre que possível, resolvê-los antes que cheguem até vocês." },
+];
+
+const jornada = [
+  {
+    n: "1",
+    t: "A primeira conversa",
+    s: "Antes da proposta, queremos ouvir.",
+    p: [
+      "Conversamos sobre vocês, o casamento imaginado, número de convidados, data, orçamento, local, caso já exista, e tudo aquilo que já foi decidido.",
+      "Também falamos sobre dúvidas e preocupações.",
+      "Essa conversa é importante porque dois casamentos com o mesmo número de convidados podem exigir projetos completamente diferentes.",
+    ],
+  },
+  {
+    n: "2",
+    t: "O desenho do projeto",
+    s: "Transformamos desejos em um plano possível.",
+    p: [
+      "Com as primeiras informações em mãos, estruturamos escopo, prioridades e próximos passos.",
+      "Aqui começa o equilíbrio entre expectativa, investimento, logística e aquilo que realmente importa para vocês.",
+    ],
+  },
+  {
+    n: "3",
+    t: "Planejamento e fornecedores",
+    s: "Cada escolha começa a conversar com as demais.",
+    p: [
+      "Espaço, gastronomia, decoração, música, fotografia, vídeo, beleza, convites, transporte, estrutura e tantas outras decisões deixam de existir isoladamente e passam a formar um único projeto.",
+      "Acompanhamos propostas, prazos e alinhamentos ao longo dessa construção.",
+    ],
+  },
+  {
+    n: "4",
+    t: "A reta final",
+    s: "O planejamento começa a virar operação.",
+    p: [
+      "Conferimos contratos e informações importantes, fechamos horários, organizamos fornecedores e construímos o cronograma detalhado.",
+      "É quando cada pessoa envolvida precisa saber onde estar, quando chegar e o que fazer.",
+    ],
+  },
+  {
+    n: "5",
+    t: "O casamento",
+    s: "Vocês deixam de ser organizadores e voltam a ser noivos.",
+    p: [
+      "Enquanto vocês se arrumam, encontram a família e começam a viver aquilo que planejaram durante meses, nossa equipe assume a operação.",
+      "Acompanhamos montagem, fornecedores, cerimônia, recepção e os momentos previstos no roteiro.",
+    ],
+  },
+  {
+    n: "6",
+    t: "O encerramento",
+    s: "A festa termina. Nosso trabalho ainda não necessariamente.",
+    p: [
+      "Coordenamos as últimas etapas operacionais previstas e encerramos o projeto com o mesmo cuidado com que ele começou.",
+    ],
+  },
+];
+
+const pilares = [
+  { t: "Planejar antes", d: "Quanto melhor a preparação, menos decisões precisam ser improvisadas no grande dia." },
+  { t: "Resolver durante", d: "Quando alguma coisa sai diferente do previsto, nossa prioridade é encontrar a solução, não transferir o problema para os noivos." },
+  { t: "Estar presente sem ocupar a cena", d: "A assessoria precisa estar em todos os lugares sem transformar o casamento em um evento sobre a assessoria." },
+];
+
+const paraQuem = [
+  "querem participar das decisões sem precisar administrar cada fornecedor;",
+  "têm muitas ideias, mas ainda não sabem como conectá-las;",
+  "já começaram a organizar tudo e perceberam a quantidade de detalhes envolvidos;",
+  "querem ter alguém experiente para dizer quando uma ideia funciona, e quando existe uma alternativa melhor;",
+  "valorizam planejamento, mas não querem um casamento com cara de evento engessado;",
+  "querem chegar ao dia sabendo que existe alguém responsável pelo todo.",
+];
+
+const faq = [
+  {
+    q: "Vocês fazem apenas casamentos completos?",
+    a: ["Não. Podemos acompanhar o projeto desde o início ou entrar quando parte das decisões e contratações já foi realizada. Na primeira conversa entendemos em que momento vocês estão e qual formato de assessoria faz sentido."],
+  },
+  {
+    q: "Vocês trabalham com fornecedores próprios?",
+    a: [
+      "Temos parceiros e profissionais que conhecemos ao longo da nossa trajetória, mas a indicação depende das características de cada projeto.",
+      "Não acreditamos que todo casamento precise utilizar os mesmos fornecedores.",
+      "Se vocês já tiverem profissionais contratados ou pessoas com quem querem trabalhar, eles podem ser integrados ao planejamento.",
+    ],
+  },
+  {
+    q: "Vocês trabalham apenas em São Paulo?",
+    a: ["Nossa base é São Paulo, mas podemos avaliar projetos em outras cidades e destinos. Logística, deslocamento, hospedagem e necessidades de equipe são considerados de acordo com cada projeto."],
+  },
+  {
+    q: "Quanto custa a assessoria?",
+    a: [
+      "O investimento depende principalmente do escopo, complexidade, duração do planejamento, localização e necessidades do casamento.",
+      "Por isso, preferimos entender o projeto antes de apresentar uma proposta.",
+    ],
+  },
+  {
+    q: "Com quanto tempo de antecedência devemos procurar vocês?",
+    a: [
+      "Quanto antes entrarmos, maior tende a ser nossa participação no planejamento e nas decisões iniciais.",
+      "Mas isso não significa que exista um prazo universal. Se o casamento já estiver em andamento, conversem conosco para entendermos o que ainda precisa ser estruturado.",
+    ],
+  },
+  {
+    q: "Vocês ajudam a controlar o orçamento?",
+    a: [
+      "Sim. O orçamento faz parte do planejamento porque praticamente todas as decisões do casamento se relacionam a ele.",
+      "Nosso trabalho é ajudar vocês a enxergar prioridades, comparar alternativas e entender os impactos das escolhas ao longo do projeto.",
+    ],
+  },
+  {
+    q: "Já temos o espaço. Ainda faz sentido contratar assessoria?",
+    a: ["Sim. O espaço é uma das grandes decisões, mas ainda existem fornecedores, cronogramas, logística, cerimônia, operação e dezenas de outros pontos a conectar."],
+  },
+  {
+    q: "Podemos contratar fornecedores que encontramos por conta própria?",
+    a: [
+      "Sim.",
+      "O casamento é de vocês. Nosso papel é avaliar a integração dessas escolhas ao projeto, levantar pontos de atenção e ajudar na coordenação dos profissionais envolvidos.",
+    ],
+  },
+  {
+    q: "Vocês cuidam do casamento no próprio dia?",
+    a: [
+      "Sim. A operação do casamento é justamente uma das etapas mais importantes do nosso trabalho.",
+      "A equipe acompanha o que foi planejado para que vocês não precisem passar o casamento conferindo horários ou procurando fornecedores.",
+    ],
+  },
+  {
+    q: "E se alguma coisa der errado?",
+    a: [
+      "Primeiro, tentamos reduzir essa possibilidade durante o planejamento.",
+      "No evento, nossa função é identificar desvios, avaliar alternativas e coordenar a solução com os profissionais responsáveis.",
+      "Nem todo imprevisto pode ser evitado. Mas muitos podem ser resolvidos sem virar um problema para os noivos.",
+    ],
+  },
+  {
+    q: "Qual é o primeiro passo?",
+    a: ["Uma conversa.", "Vocês contam o que já imaginaram, o que já resolveram e onde estão as maiores dúvidas. A partir daí conseguimos entender o projeto e indicar os próximos passos."],
+  },
+];
+
+function Eyebrow({ children }) {
+  return <p className="text-xs tracking-widest text-[#8f897c] font-mono mb-6">{children}</p>;
+}
+
+function Destaque({ children }) {
+  return (
+    <div className="font-serif text-2xl md:text-4xl text-[#efe7d7]" style={{ lineHeight: 1.25, letterSpacing: "-0.01em" }}>
+      {children}
+    </div>
+  );
+}
+
+function Cta({ children, outline }) {
+  return (
+    <a
+      href={WA}
+      target="_blank"
+      rel="noreferrer"
+      className={
+        outline
+          ? "inline-block border border-white/30 text-[#efe7d7] font-medium px-7 py-3 rounded-full hover:bg-white/5 transition-colors"
+          : "inline-block bg-[#c2410c] text-white font-medium px-7 py-3 rounded-full hover:bg-[#a8360a] transition-colors"
+      }
+    >
+      {children}
+    </a>
+  );
+}
+
+const wrap = "max-w-5xl mx-auto px-6 py-20 md:py-28";
+const body = "text-[#c9c2b3]";
 
 export default function FamiliaRenda() {
-
-return  (
-      <main className="bg-[#17161c] text-[#efe7d7]">
-        <section
-         id="topo"
-         className="relative min-h-[92vh] flex items-end px-6 md:px-10 pb-16 md:pb-20"
-       >
-                  <img
-           src={PHOTO_HERO}
-           alt=""
-           className="absolute inset-0 w-full h-full object-cover"
-         />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0d0c10] via-[#0d0c10]/40 to-[#0d0c10]/10" />
-                    <div className="relative max-w-2xl">
-                      <p className="text-sm text-[#d9c9a8] mb-5">
-                        Fotografia de casamento em São Paulo
-           </p>
-           <h1
-             className="font-serif text-4xl md:text-6xl mb-6"
-             style={{ lineHeight: 1.08, letterSpacing: "-0.02em" }}
-          >
-            O dia de vocês, registrado por quem entende do assunto há três
-            gerações.
-                       </h1>
-          <p className="text-[#e4dcc8] text-lg max-w-xl mb-8" style={{ lineHeight: 1.6 }}>
-            Da primeira câmera em casa, em 1986, até hoje na Avenida
-            Paulista: seguimos sendo a mesma família fotografando a sua.
-                       </p>
-          <a
-            href="https://wa.me/5511960684469"
-            target="_blank"
-            rel="noreferrer"
-            className="inline-block bg-[#c2410c] text-white font-medium px-7 py-3 rounded-full hover:bg-[#a8360a] transition-colors"
-          >
-                         Vamos conversar sobre o seu casamento
-          </a>
+  return (
+    <main className="bg-[#17161c] text-[#efe7d7]">
+      <section id="topo" className="relative min-h-[92vh] flex items-end px-6 md:px-10 pb-14 md:pb-20">
+        <img src={PHOTO_HERO} alt="" className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0d0c10] via-[#0d0c10]/75 to-[#0d0c10]/10" />
+        <div className="relative max-w-2xl pt-40">
+          <p className="text-xs tracking-widest text-[#d9c9a8] font-mono mb-5">CASAMENTOS • ASSESSORIA • PRODUÇÃO</p>
+          <h1 className="font-serif text-3xl md:text-5xl mb-6" style={{ lineHeight: 1.1, letterSpacing: "-0.02em" }}>
+            O dia de vocês acontece uma vez.
+            <br />
+            Nosso trabalho é cuidar de tudo o que existe ao redor dele.
+          </h1>
+          <div className="space-y-4 text-[#e4dcc8] max-w-xl mb-6" style={{ lineHeight: 1.7 }}>
+            <p>Um casamento começa muito antes da cerimônia.</p>
+            <p>
+              Começa nas primeiras escolhas, nas conversas sobre orçamento, na procura pelo lugar certo, nas dúvidas que
+              aparecem pelo caminho e em centenas de decisões que precisam funcionar juntas para que, no grande dia,
+              vocês possam simplesmente estar presentes.
+            </p>
+            <p>
+              A Renda & Filho planeja, coordena e produz casamentos de ponta a ponta, conectando fornecedores,
+              cronograma, estrutura, convidados e todos os detalhes que transformam planejamento em experiência.
+            </p>
+          </div>
+          <p className="font-serif text-xl md:text-2xl mb-8">Vocês vivem. A gente faz acontecer.</p>
+          <div className="flex flex-col sm:flex-row gap-4 sm:items-center">
+            <Cta>Quero conversar sobre meu casamento</Cta>
+            <a href="#portfolio" className="text-[#e4dcc8] underline underline-offset-4 decoration-white/30 hover:decoration-white transition-colors">
+              Conheça nosso trabalho
+            </a>
+          </div>
         </div>
       </section>
 
-      <nav className="sticky top-0 z-10 bg-[#17161c]/95 backdrop-blur border-b border-white/10">
-                     <div className="max-w-5xl mx-auto px-6 flex gap-6 overflow-x-auto text-sm py-4">
-                       {navLinks.map((l) => (
-                                    <a
-                                                   key={l.href}
-              href={l.href}
-              className="text-[#c9c2b3] hover:text-[#efe7d7] transition-colors whitespace-nowrap"
-            >
-                             {l.label}
+      <nav aria-label="Seções da página" className="sticky top-0 z-10 bg-[#17161c]/95 backdrop-blur border-b border-white/10">
+        <div className="max-w-5xl mx-auto px-6 flex items-center gap-6 overflow-x-auto text-sm py-3">
+          {navLinks.map((l) => (
+            <a key={l.href} href={l.href} className="text-[#c9c2b3] hover:text-[#efe7d7] transition-colors whitespace-nowrap">
+              {l.label}
             </a>
           ))}
+          <a href={WA} target="_blank" rel="noreferrer" className="ml-auto shrink-0 bg-[#c2410c] text-white font-medium px-4 py-1.5 rounded-full hover:bg-[#a8360a] transition-colors whitespace-nowrap">
+            Vamos conversar
+          </a>
         </div>
       </nav>
 
-      <section id="historia" className="max-w-5xl mx-auto px-6 py-20 md:py-28">
-                   <div className="grid md:grid-cols-[1fr_1fr] gap-12 items-center">
-                     <div>
-                       <p className="text-xs tracking-widest text-[#8f897c] font-mono mb-6">
-                         A HISTÓRIA
-            </p>
-            <h2 className="font-serif text-3xl md:text-4xl mb-6" style={{ lineHeight: 1.15 }}>
-              Uma família, não um freelancer
-            </h2>
-            <div className="space-y-4 text-[#c9c2b3]" style={{ lineHeight: 1.75 }}>
-              <p>
-                               José e Sandra começaram fotografando casamentos em 1986, com
-                o equipamento que tinham em casa. Passaram pela tradicional
-                Rua das Noivas, ponto de referência pra noivas paulistanas
-                escolhendo fornecedores, e hoje o escritório fica na Avenida
-                Paulista.
-                               </p>
-              <p>
-                                 Marcelo nasceu e cresceu rodeado de câmeras, e se juntou
-                naturalmente ao ofício. Hoje é ele quem assina a maior parte
-                das sessões, com a mesma atenção que aprendeu vendo os pais
-                trabalharem.
-                               </p>
-              <p>
-                                 Isso muda uma coisa pra vocês: quando contratam a Família
-                Renda, não estão contratando alguém que pode sumir do
-                mercado ano que vem. Estão contratando quase quatro décadas
-                de trabalho, com nome e endereço.
-                               </p>
+      <section aria-label="Autoridade" className="border-b border-white/10">
+        <div className="max-w-5xl mx-auto px-6 py-12 grid md:grid-cols-3 gap-8">
+          {prova.map((p) => (
+            <div key={p.t} className="border-t border-white/15 pt-4">
+              <h2 className="font-serif text-xl mb-2">{p.t}</h2>
+              <p className={"text-sm " + body} style={{ lineHeight: 1.65 }}>{p.d}</p>
             </div>
-          </div>
-          <div className="relative">
-                             <img
-              src={PHOTO_HISTORIA}
-              alt=""
-              className="w-full aspect-[3/4] object-cover rounded-lg"
-            />
-                         </div>
+          ))}
         </div>
       </section>
 
-      <section id="servicos" className="border-t border-white/10">
-                       <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
-                         <p className="text-xs tracking-widest text-[#8f897c] font-mono mb-6">
-                           O QUE FAZEMOS
-          </p>
-          <h2 className="font-serif text-3xl md:text-5xl mb-10" style={{ lineHeight: 1.15 }}>
-            Casamento é o ponto de partida
-          </h2>
-
-          <div className="grid md:grid-cols-[2fr_1fr] gap-6 mb-6 pb-10 border-b border-white/10">
-                         <div>
-                           <h3 className="font-serif text-2xl md:text-3xl mb-3">Casamento</h3>
-              <p className="text-[#c9c2b3] max-w-xl" style={{ lineHeight: 1.7 }}>
-                Cobertura completa da cerimônia e da festa: making of,
-                                 chegada, cerimônia, discursos, primeira dança, festa até o
-                fim. O dia inteiro, do começo ao último brinde.
-                               </p>
-            </div>
+      <section id="sobre" className="scroll-mt-14">
+        <div className={wrap}>
+          <div className="grid md:grid-cols-[1.15fr_1fr] gap-12 items-start">
             <div>
-                               <h3 className="font-serif text-2xl md:text-3xl mb-3">Pré-wedding</h3>
-              <p className="text-[#c9c2b3]" style={{ lineHeight: 1.7 }}>
-                Um ensaio antes do grande dia, no lugar que vocês escolherem,
-                                 pra soltar o corpo na frente da câmera antes da festa.
-                               </p>
+              <Eyebrow>A HISTÓRIA</Eyebrow>
+              <h2 className="font-serif text-3xl md:text-4xl mb-8" style={{ lineHeight: 1.15 }}>
+                Uma família que trabalha com eventos há mais de três décadas.
+              </h2>
+              <div className={"space-y-5 max-w-xl " + body} style={{ lineHeight: 1.75 }}>
+                <p>A história da Renda & Filho começou muito antes do nome Renda & Filho existir.</p>
+                <p>
+                  <strong className="text-[#efe7d7] font-semibold">José Renda</strong> é publicitário de formação e
+                  trabalha com eventos desde 1990. Ao longo de mais de três décadas, participou da realização de
+                  milhares de eventos sociais e corporativos, construindo uma experiência que não se aprende apenas em
+                  cursos ou planilhas: aquela que vem de acompanhar montagem, operação, fornecedores, imprevistos,
+                  desmontagem e tudo aquilo que acontece nos bastidores enquanto, do outro lado, o evento precisa
+                  parecer simples.
+                </p>
+                <p>Hoje, José está à frente da direção técnica das produções.</p>
+                <p>
+                  <strong className="text-[#efe7d7] font-semibold">Marcelo Renda</strong> cresceu próximo desse
+                  universo e começou a trabalhar com eventos em 2008. Marketeiro e fotógrafo, construiu uma trajetória
+                  que atravessa produção, fotografia, comunicação, experiência, planejamento e gestão de projetos. Como
+                  fotógrafo, teve trabalhos expostos em galerias de 19 países e, na Renda & Filho, conduz principalmente
+                  a direção artística e estratégica dos projetos.
+                </p>
+                <p>
+                  Duas gerações acabaram formando uma combinação natural: de um lado, décadas de experiência
+                  operacional; do outro, um olhar construído entre imagem, comunicação, experiência e gestão.
+                </p>
+              </div>
             </div>
+            <img src={PHOTO_SOBRE} alt="" className="w-full aspect-[3/4] object-cover rounded-lg md:sticky md:top-20" />
           </div>
-
-          <p className="text-[#8f897c] mb-3" style={{ lineHeight: 1.7 }}>
-            E depois do sim? Continuamos ao lado da história de vocês:
-                      </p>
-          <p className="text-[#c9c2b3]" style={{ lineHeight: 1.7 }}>
-            gestante, chá revelação, aniversário de um aninho, book de
-            família. Fotografamos a mesma família em capítulos diferentes,
-                         porque foi assim que a nossa também cresceu.
-                       </p>
-        </div>
-      </section>
-
-      <section id="metodo" className="border-t border-white/10">
-                     <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
-                       <p className="text-xs tracking-widest text-[#8f897c] font-mono mb-6">
-                         COMO FUNCIONA
-          </p>
-          <h2 className="font-serif text-3xl md:text-5xl mb-14" style={{ lineHeight: 1.15 }}>
-            Do primeiro café até a entrega
-          </h2>
-          <div className="space-y-12">
-                         {metodo.map((m) => (
-                                        <div key={m.n} className="grid md:grid-cols-[80px_1fr] gap-4 md:gap-8">
-                                          <span className="font-serif text-5xl text-[#c2410c]">{m.n}</span>
-                                                     <div>
-                                            <h3 className="text-xl font-semibold mb-2">{m.title}</h3>
-                                                       <p className="text-[#c9c2b3] max-w-xl" style={{ lineHeight: 1.7 }}>
-                                                         {m.text}
-                                                       </p>
-                                                     </div>
-                                                   </div>
-                                                 ))}
+          <div className="mt-16 md:mt-24 max-w-3xl border-l border-[#c2410c] pl-6 md:pl-10">
+            <Destaque>
+              <p className="mb-6">Mas Renda & Filho não significa fazer as coisas “como sempre foram feitas”.</p>
+              <p className={"text-lg md:text-xl mb-6 font-sans " + body} style={{ lineHeight: 1.7, letterSpacing: 0 }}>
+                Significa carregar para cada novo projeto tudo aquilo que a experiência ensinou, e ainda começar cada
+                casamento do zero.
+              </p>
+              <p className="text-[#c9c2b3]">Porque nenhum casal é igual ao anterior.</p>
+              <p>E nenhum casamento deveria ser também.</p>
+            </Destaque>
           </div>
         </div>
       </section>
 
-      <section id="portfolio" className="border-t border-white/10">
-                   <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
-                     <p className="text-xs tracking-widest text-[#8f897c] font-mono mb-6">
-                       PORTFÓLIO
-          </p>
-          <h2 className="font-serif text-3xl md:text-5xl mb-12" style={{ lineHeight: 1.15 }}>
-            Alguns dos nossos casais
+      <section className="border-t border-white/10">
+        <div className="max-w-3xl mx-auto px-6 py-20 md:py-28">
+          <Eyebrow>NOSSO JEITO DE TRABALHAR</Eyebrow>
+          <h2 className="font-serif text-3xl md:text-4xl mb-8" style={{ lineHeight: 1.15 }}>
+            Antes de organizar um casamento, precisamos entender o que ele significa para vocês.
           </h2>
+          <div className={"space-y-5 mb-14 " + body} style={{ lineHeight: 1.75 }}>
+            <p>Número de convidados, orçamento, data e local são importantes. Mas não dizem tudo.</p>
+            <p>
+              Queremos entender como vocês imaginam esse dia. O que é indispensável. O que não combina com vocês. Onde
+              vale investir mais. Onde podemos simplificar. O que preocupa. O que emociona. E como vocês gostariam de se
+              sentir quando tudo finalmente começar.
+            </p>
+            <p>É a partir dessa conversa que o casamento ganha forma.</p>
+            <p>
+              Não trabalhamos tentando encaixar o casal em um pacote pré-definido. Construímos a produção a partir das
+              necessidades reais de cada projeto, equilibrando desejo, orçamento, viabilidade e experiência dos
+              convidados.
+            </p>
+          </div>
+          <Destaque>
+            <p>Primeiro entendemos o casamento.</p>
+            <p className="text-[#c2410c]">Depois começamos a produzi-lo.</p>
+          </Destaque>
+        </div>
+      </section>
+
+      <section id="servicos" className="border-t border-white/10 scroll-mt-14">
+        <div className={wrap}>
+          <Eyebrow>O QUE FAZEMOS</Eyebrow>
+          <h2 className="font-serif text-3xl md:text-5xl mb-8 max-w-3xl" style={{ lineHeight: 1.12 }}>
+            Do primeiro orçamento ao último fornecedor deixando o salão.
+          </h2>
+          <div className={"max-w-xl space-y-2 mb-14 " + body} style={{ lineHeight: 1.7 }}>
+            <p>Vocês podem chegar até nós no começo da história ou quando parte dela já estiver resolvida.</p>
+            <p>Por isso, nossa atuação se adapta ao momento de cada casal.</p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-x-14 gap-y-12">
+            {servicos.map((s) => (
+              <article key={s.t} className="border-t border-white/15 pt-6">
+                <h3 className="font-serif text-2xl md:text-3xl mb-3">{s.t}</h3>
+                <p className="text-[#efe7d7] font-medium mb-4" style={{ lineHeight: 1.5 }}>{s.s}</p>
+                <div className={"space-y-3 " + body} style={{ lineHeight: 1.7 }}>
+                  {s.p.map((t) => (
+                    <p key={t}>{t}</p>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
+          <div className="mt-14">
+            <Cta outline>Conte em que etapa vocês estão</Cta>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-white/10">
+        <div className={wrap}>
+          <Eyebrow>POR TRÁS DO EVENTO</Eyebrow>
+          <h2 className="font-serif text-3xl md:text-4xl mb-8 max-w-3xl" style={{ lineHeight: 1.15 }}>
+            Vocês veem a celebração. Nós enxergamos todas as engrenagens que precisam funcionar juntas.
+          </h2>
+          <div className={"max-w-xl space-y-2 mb-14 " + body} style={{ lineHeight: 1.7 }}>
+            <p>Um casamento reúne dezenas de profissionais, horários, entregas, contratos e decisões diferentes.</p>
+            <p>Nosso papel é transformar tudo isso em uma operação única.</p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-10">
+            {engrenagens.map((e) => (
+              <div key={e.t} className="border-t border-white/15 pt-4">
+                <h3 className="text-lg font-semibold mb-2">{e.t}</h3>
+                <p className={"text-sm " + body} style={{ lineHeight: 1.7 }}>{e.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="processo" className="border-t border-white/10 scroll-mt-14">
+        <div className={wrap}>
+          <Eyebrow>COMO FUNCIONA</Eyebrow>
+          <h2 className="font-serif text-3xl md:text-5xl mb-16 max-w-3xl" style={{ lineHeight: 1.12 }}>
+            Do primeiro café ao último abraço da noite.
+          </h2>
+          <ol className="space-y-14">
+            {jornada.map((j) => (
+              <li key={j.n} className="grid md:grid-cols-[80px_1fr] gap-3 md:gap-8">
+                <span aria-hidden="true" className="font-serif text-5xl text-[#c2410c]">{j.n}</span>
+                <div>
+                  <h3 className="text-xl font-semibold mb-1">{j.t}</h3>
+                  <p className="font-serif text-xl md:text-2xl mb-4" style={{ lineHeight: 1.3 }}>{j.s}</p>
+                  <div className={"space-y-3 max-w-xl " + body} style={{ lineHeight: 1.7 }}>
+                    {j.p.map((t) => (
+                      <p key={t}>{t}</p>
+                    ))}
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ol>
+          <div className="mt-20 max-w-3xl border-l border-[#c2410c] pl-6 md:pl-10">
+            <Destaque>
+              <p>Um bom casamento parece espontâneo para quem está vivendo.</p>
+              <p className="text-[#c9c2b3]">Isso normalmente significa que muita coisa foi planejada nos bastidores.</p>
+            </Destaque>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-white/10">
+        <div className={wrap}>
+          <Eyebrow>RENDA & FILHO</Eyebrow>
+          <h2 className="font-serif text-3xl md:text-4xl mb-8 max-w-3xl" style={{ lineHeight: 1.15 }}>
+            Experiência para prever. Estrutura para resolver. Sensibilidade para não transformar o casamento em uma
+            planilha.
+          </h2>
+          <div className={"space-y-5 max-w-xl mb-14 " + body} style={{ lineHeight: 1.75 }}>
+            <p>Organização é indispensável. Mas casamento não é apenas operação.</p>
+            <p>
+              Existe uma família reunida, pessoas viajando para estar ali, expectativas construídas durante meses e
+              momentos que não podem simplesmente ser repetidos na semana seguinte.
+            </p>
+            <p>É por isso que nosso trabalho combina duas perspectivas.</p>
+            <p>
+              A primeira é técnica: cronogramas, fornecedores, logística, estrutura, responsabilidades, alternativas e
+              prevenção de riscos.
+            </p>
+            <p>
+              A segunda é humana: entender o que realmente importa para o casal e proteger a experiência que foi
+              planejada.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-10 mb-16">
+            {pilares.map((p) => (
+              <div key={p.t} className="border-t border-white/15 pt-4">
+                <h3 className="font-serif text-2xl mb-3">{p.t}</h3>
+                <p className={body} style={{ lineHeight: 1.7 }}>{p.d}</p>
+              </div>
+            ))}
+          </div>
+          <Destaque>
+            <p>Se tudo correr exatamente como planejado, ótimo.</p>
+            <p className="text-[#c2410c]">Se não correr, é justamente por isso que estaremos lá.</p>
+          </Destaque>
+        </div>
+      </section>
+
+      <section id="portfolio" className="border-t border-white/10 scroll-mt-14">
+        <div className={wrap}>
+          <Eyebrow>HISTÓRIAS QUE JÁ PASSARAM POR AQUI</Eyebrow>
+          <h2 className="font-serif text-3xl md:text-5xl mb-8 max-w-3xl" style={{ lineHeight: 1.12 }}>
+            Casamentos são feitos de muito mais do que a cerimônia.
+          </h2>
+          <div className={"space-y-4 max-w-xl mb-12 " + body} style={{ lineHeight: 1.75 }}>
+            <p>
+              São feitos do lugar escolhido, das pessoas que atravessaram cidades para estar ali, das crianças correndo
+              pelo salão, dos animais que fazem parte da família, da arquitetura, da comida, da música, dos detalhes e
+              de pequenas cenas que ninguém colocou no cronograma.
+            </p>
+            <p>Cada casamento que produzimos tem uma lógica própria.</p>
+            <p>Aqui estão algumas delas.</p>
+          </div>
           <div className="grid md:grid-cols-3 gap-4">
-                         <figure className="md:col-span-2">
-                           <img
-                src={PHOTO_PORTFOLIO_1}
-                alt=""
-                className="w-full aspect-[4/3] object-cover rounded-lg mb-3"
-              />
-                               <figcaption className="text-sm text-[#8f897c]">
-                                 Bruno e Denise, centro histórico de São Paulo
-              </figcaption>
+            <figure className="md:col-span-2">
+              <img src={PHOTO_P1} alt="Casal em frente a um prédio histórico no centro de São Paulo" className="w-full aspect-[4/3] object-cover rounded-lg mb-3" />
+              <figcaption className="text-sm text-[#8f897c]">Bruno e Denise, ensaio no centro histórico de São Paulo</figcaption>
             </figure>
             <figure>
-                               <img
-                src={PHOTO_PORTFOLIO_2}
-                alt=""
-                className="w-full aspect-[3/4] object-cover rounded-lg mb-3"
-              />
-                               <figcaption className="text-sm text-[#8f897c]">
-                                 Letícia e Thiago, no dia do sim
-              </figcaption>
+              <img src={PHOTO_P2} alt="Cachorro vestido para o casamento, no colo da noiva" className="w-full aspect-[3/4] object-cover rounded-lg mb-3" />
+              <figcaption className="text-sm text-[#8f897c]">Letícia e Thiago: os animais também fazem parte da família</figcaption>
             </figure>
-                             <figure>
-                               <img
-                                 src={PHOTO_CONTINUIDADE}
-                alt=""
-                className="w-full aspect-[3/4] object-cover rounded-lg mb-3"
-              />
-                               <figcaption className="text-sm text-[#8f897c]">
-                                 Um dos capítulos seguintes: fotografia de família
-              </figcaption>
+            <figure>
+              <img src={PHOTO_P3} alt="Bebê sorrindo em um banco de igreja" className="w-full aspect-[3/4] object-cover rounded-lg mb-3" />
+              <figcaption className="text-sm text-[#8f897c]">As crianças e a família reunida</figcaption>
             </figure>
             <figure className="md:col-span-2">
-                               <img
-                src={PHOTO_PORTFOLIO_3}
-                alt=""
-                className="w-full aspect-[4/3] object-cover rounded-lg mb-3"
-              />
-                               <figcaption className="text-sm text-[#8f897c]">
-                                 Um novo capítulo em família
-              </figcaption>
+              <img src={PHOTO_P4} alt="Bebê sentado diante de um altar" className="w-full aspect-[4/3] object-cover rounded-lg mb-3" />
+              <figcaption className="text-sm text-[#8f897c]">Uma celebração em família</figcaption>
             </figure>
           </div>
         </div>
       </section>
 
-      <section id="perguntas" className="border-t border-white/10">
-                         <div className="max-w-3xl mx-auto px-6 py-20 md:py-28">
-                           <p className="text-xs tracking-widest text-[#8f897c] font-mono mb-6">
-                             PERGUNTAS FREQUENTES
-          </p>
+      <section className="border-t border-white/10">
+        <div className="max-w-3xl mx-auto px-6 py-20 md:py-28">
           <h2 className="font-serif text-3xl md:text-4xl mb-10" style={{ lineHeight: 1.15 }}>
-            O que vocês costumam perguntar
+            Talvez vocês estejam procurando a Renda & Filho se...
           </h2>
-          <div className="divide-y divide-white/10">
-                         {perguntas.map((p) => (
-                                        <details key={p.q} className="group py-5">
-                                          <summary className="cursor-pointer list-none flex items-center justify-between gap-4 text-lg font-medium">
-                                            {p.q}
-                                                          <span className="text-[#c2410c] text-xl shrink-0 group-open:rotate-45 transition-transform">
-                                              +
-                                                        </span>
-                                                        </summary>
-                                                        <p className="text-[#c9c2b3] mt-3" style={{ lineHeight: 1.7 }}>
-                                                          {p.a}
-                                                        </p>
-                                                      </details>
-                                                    ))}
+          <ul className="divide-y divide-white/10 border-y border-white/10 mb-14">
+            {paraQuem.map((t) => (
+              <li key={t} className={"py-4 " + body} style={{ lineHeight: 1.6 }}>{t}</li>
+            ))}
+          </ul>
+          <Destaque>
+            <p>Não precisamos substituir o envolvimento de vocês.</p>
+            <p className="text-[#c2410c]">Precisamos tornar esse envolvimento mais leve.</p>
+          </Destaque>
+        </div>
+      </section>
+
+      <section id="faq" className="border-t border-white/10 scroll-mt-14">
+        <div className="max-w-3xl mx-auto px-6 py-20 md:py-28">
+          <Eyebrow>PERGUNTAS FREQUENTES</Eyebrow>
+          <h2 className="font-serif text-3xl md:text-4xl mb-10" style={{ lineHeight: 1.15 }}>
+            Antes do nosso primeiro café, talvez algumas respostas ajudem.
+          </h2>
+          <div className="divide-y divide-white/10 border-y border-white/10">
+            {faq.map((f) => (
+              <details key={f.q} className="group py-5">
+                <summary className="cursor-pointer list-none flex items-center justify-between gap-4 text-lg font-medium">
+                  <h3 className="font-medium">{f.q}</h3>
+                  <span aria-hidden="true" className="text-[#c2410c] text-2xl shrink-0 group-open:rotate-45 transition-transform">+</span>
+                </summary>
+                <div className={"mt-3 space-y-3 max-w-2xl " + body} style={{ lineHeight: 1.7 }}>
+                  {f.a.map((t) => (
+                    <p key={t}>{t}</p>
+                  ))}
+                </div>
+              </details>
+            ))}
           </div>
         </div>
       </section>
 
-      <section id="contato" className="border-t border-white/10">
-                   <div className="max-w-3xl mx-auto px-6 py-20 md:py-28 text-center">
-                     <h2 className="font-serif text-3xl md:text-5xl mb-6" style={{ lineHeight: 1.15 }}>
-            Vamos marcar aquele café?
-                       </h2>
-          <p className="text-[#c9c2b3] mb-10 max-w-lg mx-auto" style={{ lineHeight: 1.7 }}>
-            Sem compromisso, sem letra miúda. É só pra contar como funciona e
-            tirar as dúvidas de vocês sobre o grande dia.
-                       </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                         <a
-              href="https://wa.me/5511960684469"
-              target="_blank"
-              rel="noreferrer"
-              className="bg-[#c2410c] text-white font-medium px-7 py-3 rounded-full hover:bg-[#a8360a] transition-colors"
-            >
-                             WhatsApp com Marcelo
-            </a>
-            <a
-              href="https://wa.me/5511943800957"
-              target="_blank"
-              rel="noreferrer"
-              className="border border-white/30 text-[#efe7d7] font-medium px-7 py-3 rounded-full hover:bg-white/5 transition-colors"
-            >
-                             WhatsApp com José
-            </a>
+      <section id="contato" className="border-t border-white/10 scroll-mt-14">
+        <div className="max-w-3xl mx-auto px-6 py-20 md:py-28 text-center">
+          <Eyebrow>O PRIMEIRO PASSO É SIMPLES</Eyebrow>
+          <h2 className="font-serif text-4xl md:text-6xl mb-8" style={{ lineHeight: 1.1, letterSpacing: "-0.02em" }}>
+            Antes do casamento, um café.
+          </h2>
+          <div className={"space-y-4 max-w-lg mx-auto mb-10 " + body} style={{ lineHeight: 1.75 }}>
+            <p>Contem para a gente o que vocês estão imaginando.</p>
+            <p>Não é preciso chegar com tudo decidido: na verdade, normalmente ninguém chega.</p>
+            <p>
+              Queremos saber quem são vocês, quando pretendem casar, o que já está definido e onde estão as maiores
+              dúvidas.
+            </p>
+            <p>A partir daí, começamos a entender o projeto.</p>
           </div>
+          <Cta>Conversar pelo WhatsApp</Cta>
+          <p className="text-sm text-[#8f897c] mt-6">
+            Sem formulário interminável. A primeira conversa é uma conversa mesmo.
+          </p>
         </div>
       </section>
     </main>
   );
 }
-
