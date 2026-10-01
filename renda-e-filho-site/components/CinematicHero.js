@@ -2,14 +2,12 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const PHOTO_HERO =
-  "https://lh3.googleusercontent.com/d/1upgNJcI6XXd1oE1SyPSYkfcNyGs6qFAB=w1920";
-
 const LINE1 = ["Uma", "família,"];
 const LINE2 = ["quatro", "ofícios."];
 
 export default function CinematicHero() {
   const [revealed, setRevealed] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(false);
   const imgRef = useRef(null);
 
   useEffect(() => {
@@ -21,6 +19,7 @@ export default function CinematicHero() {
     const prefersReduced = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
+    setReducedMotion(prefersReduced);
     if (prefersReduced) return;
 
     let frame = null;
@@ -42,12 +41,25 @@ export default function CinematicHero() {
 
   return (
     <section className="relative h-[100vh] min-h-[560px] flex items-end overflow-hidden">
-      <img
-        ref={imgRef}
-        src={PHOTO_HERO}
-        alt=""
-        className="absolute inset-0 w-full h-full object-cover scale-105 will-change-transform"
-      />
+      {reducedMotion ? (
+        <img
+          src="/img/hero-poster.jpg"
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      ) : (
+        <video
+          ref={imgRef}
+          src="/video/hero-montage.mp4"
+          poster="/img/hero-poster.jpg"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover scale-105 will-change-transform"
+        />
+      )}
       <div className="absolute inset-0 bg-gradient-to-t from-[#0d0c10] via-[#0d0c10]/55 to-[#0d0c10]/10" />
       <div className="absolute inset-0 bg-gradient-to-r from-[#0d0c10]/40 via-transparent to-transparent" />
 
