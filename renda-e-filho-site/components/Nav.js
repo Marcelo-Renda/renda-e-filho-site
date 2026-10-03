@@ -9,7 +9,7 @@ const empresas = [
 
 export default function Nav() {
   return (
-    <header className="bg-[#0d0c10] border-b border-white/10">
+    <header className="relative z-50 bg-[#0d0c10] border-b border-white/10">
       <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
         <Link href="/" className="flex items-baseline gap-3 shrink-0">
           <span
@@ -31,7 +31,7 @@ export default function Nav() {
               Empresas
               <span className="text-[#8f897c] text-xs">▾</span>
             </button>
-            <div className="absolute left-0 top-full pt-3 hidden group-hover:block">
+            <div className="absolute left-0 top-full pt-3 hidden group-hover:block z-50">
               <div className="bg-[#17161c] border border-white/10 rounded-lg shadow-xl py-2 w-52">
                 {empresas.map((e) => (
                   <Link
