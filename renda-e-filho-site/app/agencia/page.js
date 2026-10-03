@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
 const WA =
@@ -145,13 +145,59 @@ function Timeline() {
 }
 
 export default function AgenciaHub() {
+  const [reducedMotion, setReducedMotion] = useState(false);
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const prefersReduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    setReducedMotion(prefersReduced);
+    if (prefersReduced) return;
+
+    let frame = null;
+    const onScroll = () => {
+      if (frame) return;
+      frame = requestAnimationFrame(() => {
+        frame = null;
+        if (!videoRef.current) return;
+        const offset = Math.min(window.scrollY * 0.35, 160);
+        videoRef.current.style.transform = `translateY(${offset}px) scale(1.08)`;
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (frame) cancelAnimationFrame(frame);
+    };
+  }, []);
+
   return (
     <main className="bg-[#0B0D22] text-white">
       <section
         id="topo"
-        className="relative min-h-[92vh] flex items-center justify-center text-center px-6"
-        style={{ background: "linear-gradient(135deg, #0B0D22 0%, #1E2761 55%, #3A3F9E 100%)" }}
+        className="relative min-h-[92vh] flex items-center justify-center text-center px-6 overflow-hidden"
       >
+        {reducedMotion ? (
+          <div
+            className="absolute inset-0"
+            style={{ background: "linear-gradient(135deg, #0B0D22 0%, #1E2761 55%, #3A3F9E 100%)" }}
+          />
+        ) : (
+          <video
+            ref={videoRef}
+            src="/video/hero-agencia.mp4"
+            poster="/img/agencia-indice.jpg"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            className="absolute inset-0 w-full h-full object-cover scale-105 will-change-transform"
+          />
+        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D22] via-[#0B0D22]/75 to-[#0B0D22]/35" />
+        <div className="absolute inset-0 bg-[#1E2761]/20 mix-blend-multiply" />
         <div className="relative max-w-2xl">
           <p className="text-xs tracking-widest text-[#C9A24B] font-mono mb-6">
             EVENTOS • EXPERIÊNCIAS • AUDIOVISUAL

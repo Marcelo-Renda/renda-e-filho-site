@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
 const PHOTO_HERO =
@@ -166,10 +166,51 @@ function Timeline() {
 }
 
 export default function FamiliaRenda() {
+  const [reducedMotion, setReducedMotion] = useState(false);
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const prefersReduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    setReducedMotion(prefersReduced);
+    if (prefersReduced) return;
+
+    let frame = null;
+    const onScroll = () => {
+      if (frame) return;
+      frame = requestAnimationFrame(() => {
+        frame = null;
+        if (!videoRef.current) return;
+        const offset = Math.min(window.scrollY * 0.35, 160);
+        videoRef.current.style.transform = `translateY(${offset}px) scale(1.08)`;
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (frame) cancelAnimationFrame(frame);
+    };
+  }, []);
+
   return (
     <main className="bg-[#17161c] text-[#efe7d7]">
-      <section id="topo" className="relative min-h-[92vh] flex items-end px-6 md:px-10 pb-14 md:pb-20">
-        <img src={PHOTO_HERO} alt="" className="absolute inset-0 w-full h-full object-cover" />
+      <section id="topo" className="relative min-h-[92vh] flex items-end px-6 md:px-10 pb-14 md:pb-20 overflow-hidden">
+        {reducedMotion ? (
+          <img src={PHOTO_HERO} alt="" className="absolute inset-0 w-full h-full object-cover" />
+        ) : (
+          <video
+            ref={videoRef}
+            src="/video/hero-familia.mp4"
+            poster="/img/hero-poster.jpg"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            className="absolute inset-0 w-full h-full object-cover scale-105 will-change-transform"
+          />
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-[#0d0c10] via-[#0d0c10]/70 to-[#0d0c10]/10" />
         <div className="relative max-w-xl pt-40">
           <p className="text-xs tracking-widest text-[#d9c9a8] font-mono mb-5">FOTOGRAFIA DE CASAMENTO</p>
