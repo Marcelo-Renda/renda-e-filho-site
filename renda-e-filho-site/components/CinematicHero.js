@@ -2,8 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const LINE1 = ["Uma", "família,"];
-const LINE2 = ["quatro", "ofícios."];
+const LINE1 = ["O", "profissional", "certo"];
+const LINE2 = ["pro", "seu", "momento."];
 
 export default function CinematicHero() {
   const [revealed, setRevealed] = useState(false);
@@ -73,7 +73,9 @@ export default function CinematicHero() {
           }}
         >
           <span className="w-2 h-2 rounded-full bg-[#c2410c]" />
-          <p className="text-sm text-[#d9c9a8]">Uma câmera, em 1986.</p>
+          <p className="text-sm text-[#d9c9a8] tracking-wide">
+            QUATRO FRENTES ESPECIALIZADAS
+          </p>
         </div>
 
         <h1
@@ -126,10 +128,9 @@ export default function CinematicHero() {
             transitionDelay: "0.55s",
           }}
         >
-          José e Sandra começaram fotografando casamentos com o equipamento
-          que tinham em casa. Marcelo cresceu nesse universo e se juntou
-          naturalmente ao trabalho. Quatro décadas depois, essa mesma base
-          virou quatro negócios com identidade própria.
+          Casamento, evento corporativo, formatura ou um retrato que precisa
+          sair perfeito: cada ocasião tem uma frente da Renda &amp; Filho
+          dedicada só a ela.
         </p>
       </div>
 
@@ -141,7 +142,7 @@ export default function CinematicHero() {
           transitionDelay: "1s",
         }}
       >
-        ROLE PARA CONHECER
+        VEJA AS 4 FRENTES ABAIXO
       </div>
     </section>
   );
