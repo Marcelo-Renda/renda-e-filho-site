@@ -1,13 +1,13 @@
 import Link from "next/link";
 
 const PHOTO_HERO =
-  "https://lh3.googleusercontent.com/d/1upgNJcI6XXd1oE1SyPSYkfcNyGs6qFAB=w1600";
+  "https://lh3.googleusercontent.com/d/1orpyiGuJevYuXYypWwLI452Do98Ksc3l=w1800";
 const PHOTO_RETRATO =
-  "https://lh3.googleusercontent.com/d/1ezgsozM0grYW3jGlV7L_IYKyo_n6iFh4=w900";
+  "https://lh3.googleusercontent.com/d/1NwHHbOrv5xIwggIton6x6bHA-Ssr6E0P=w900";
 const PHOTO_MARCA =
   "https://lh3.googleusercontent.com/d/1is66iS9i3kNfo2gz6Q4KUW2dzojsGRvA=w900";
 const PHOTO_AUTORAL =
-  "https://lh3.googleusercontent.com/d/1Drw9IAufDOrdsZ23yIaOWL4OdbT3_7-l=w900";
+  "https://lh3.googleusercontent.com/d/1RC0u0byaQxbhfy8XjQk1tkiXDUnG3yFF=w900";
 
 const WA =
   "https://wa.me/5511960684469?text=Ol%C3%A1%2C%20Marcelo!%20Encontrei%20seu%20trabalho%20pelo%20site%20e%20queria%20conversar%20sobre%20um%20projeto.";
@@ -21,9 +21,9 @@ const navLinks = [
 ];
 
 const trabalhos = [
-  { photo: PHOTO_RETRATO, t: "Retrato", d: "Estúdio, luz controlada, pessoa à vontade." },
-  { photo: PHOTO_MARCA, t: "Marca", d: "O detalhe que vende antes da palavra." },
-  { photo: PHOTO_AUTORAL, t: "Autoral", d: "Projetos pessoais, sem cliente, sem pressa." },
+  { photo: PHOTO_RETRATO, pos: "50% 18%", t: "Retrato", d: "Estúdio, luz controlada, pessoa à vontade." },
+  { photo: PHOTO_MARCA, pos: "50% 50%", t: "Marca", d: "O detalhe que vende antes da palavra." },
+  { photo: PHOTO_AUTORAL, pos: "50% 40%", t: "Autoral", d: "Projetos pessoais, sem cliente, sem pressa." },
 ];
 
 const faq = [
@@ -55,7 +55,7 @@ export default function MarceloRenda() {
         <img
           src={PHOTO_HERO}
           alt=""
-          className="absolute inset-0 w-full h-full object-cover grayscale"
+          className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "60% 55%" }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/20" />
         <div className="relative max-w-xl">
@@ -134,6 +134,7 @@ export default function MarceloRenda() {
                   src={t.photo}
                   alt=""
                   className="w-full aspect-[3/4] object-cover rounded-lg mb-3"
+                  style={{ objectPosition: t.pos }}
                 />
                 <figcaption>
                   <span className="block font-serif text-xl mb-1">{t.t}</span>

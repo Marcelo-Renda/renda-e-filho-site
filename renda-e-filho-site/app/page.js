@@ -14,21 +14,24 @@ const empresas = [
     letter: "F",
     desc: "Fotografia de casamento, do making of à última dança.",
     href: "/familia-renda",
-    photo: "https://lh3.googleusercontent.com/d/1kcdawwS4aB01ftTcmQCr0yn1nIy1b9aB=w900",
+    photo: "https://lh3.googleusercontent.com/d/171_fuD8ZYf2R9aZ2NtoLgKzcliANkETX=w1000",
+    pos: "50% 62%",
   },
   {
     name: "Elo Formaturas",
     letter: "E",
     desc: "Da Educação Infantil ao Ensino Superior, de ponta a ponta.",
     href: "/elo-formaturas",
-    photo: "https://lh3.googleusercontent.com/d/1TvArMOepXoMTn55gpDZ3xU-sTCj7619z=w900",
+    photo: "https://lh3.googleusercontent.com/d/1egKvGey7Wtz_-z9F_p_7j-YXZyR40Y8o=w1000",
+    pos: "50% 50%",
   },
   {
     name: "Marcelo Renda",
     letter: "M",
     desc: "Retratos, marcas, eventos e projetos autorais.",
     href: "/marcelo-renda",
-    photo: "https://lh3.googleusercontent.com/d/1ezgsozM0grYW3jGlV7L_IYKyo_n6iFh4=w900",
+    photo: "https://lh3.googleusercontent.com/d/1c4x2tVMfmglAmfwraTeXrwrgXrA5jfaK=w1000",
+    pos: "40% 45%",
   },
 ];
 
@@ -52,7 +55,7 @@ export default function Home() {
                 src={e.photo}
                 alt=""
                 className="absolute inset-0 w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
-                style={{ transitionTimingFunction: "cubic-bezier(0.23,1,0.32,1)" }}
+                style={{ objectPosition: e.pos, transitionTimingFunction: "cubic-bezier(0.23,1,0.32,1)" }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0d0c10] via-[#0d0c10]/50 to-[#0d0c10]/10" />
 

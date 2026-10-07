@@ -4,19 +4,18 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
 const PHOTO_HERO =
-  "https://lh3.googleusercontent.com/d/1kcdawwS4aB01ftTcmQCr0yn1nIy1b9aB=w1600";
+  "https://lh3.googleusercontent.com/d/1mCguhtwIz_sa1myqINFmPNiUujhNIfkW=w1600";
 const PHOTO_BREATHER =
-  "https://lh3.googleusercontent.com/d/10Hy1knYgQwxqjPi4av5sPrLAfpHs6Rdo=w1600";
-const PHOTO_SOBRE =
-  "https://lh3.googleusercontent.com/d/1b3wT6U5WFDUfzhq_Gy158VNOAf81JgJK=w1200";
+  "https://lh3.googleusercontent.com/d/1T2qjxr2sqDsj0EneQykkRKR6w9t0WZfr=w2000";
+const PHOTO_SOBRE = null; // a definir: retrato de José, Sandra e Marcelo
 const PHOTO_H1 =
-  "https://lh3.googleusercontent.com/d/1b3wT6U5WFDUfzhq_Gy158VNOAf81JgJK=w900";
+  "https://lh3.googleusercontent.com/d/1PBvzcLpHvH11uSadwIG_P3jLXPpCMqC-=w1200";
 const PHOTO_H2 =
-  "https://lh3.googleusercontent.com/d/1DtwQPlJrQphbPwKGRbjjpu6rShs791zG=w900";
+  "https://lh3.googleusercontent.com/d/171_fuD8ZYf2R9aZ2NtoLgKzcliANkETX=w900";
 const PHOTO_H3 =
-  "https://lh3.googleusercontent.com/d/1lk2IIC9x301_lWpGuLn4hdMt7rAlwuut=w900";
+  "https://lh3.googleusercontent.com/d/1x8IHOUbk1H3FptvpbHK9J0ya5-jAvm-E=w900";
 const PHOTO_H4 =
-  "https://lh3.googleusercontent.com/d/1R6yPR5WH6Y_jGCkEw0USNvC_iun2u_M2=w900";
+  "https://lh3.googleusercontent.com/d/1V2fFzgycFppgt9fbQ-anYa9gDMzVOPc3=w1200";
 
 const WA =
   "https://wa.me/5511960684469?text=Ol%C3%A1!%20Encontrei%20a%20Renda%20%26%20Filho%20pelo%20site%20e%20gostaria%20de%20conversar%20sobre%20meu%20casamento.";
@@ -284,13 +283,19 @@ export default function FamiliaRenda() {
       </section>
 
       <div className="w-full h-[50vh] md:h-[70vh] relative">
-        <img src={PHOTO_BREATHER} alt="" className="absolute inset-0 w-full h-full object-cover" />
+        <img src={PHOTO_BREATHER} alt="" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "50% 55%" }} />
       </div>
 
       <section id="sobre" className="border-t border-white/10 scroll-mt-14">
         <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
           <div className="grid md:grid-cols-[1fr_1.1fr] gap-12 items-center">
-            <img src={PHOTO_SOBRE} alt="" className="w-full aspect-[4/5] object-cover rounded-lg" />
+            {PHOTO_SOBRE ? (
+              <img src={PHOTO_SOBRE} alt="" className="w-full aspect-[4/5] object-cover rounded-lg" />
+            ) : (
+              <div aria-hidden="true" className="w-full aspect-[4/5] rounded-lg bg-gradient-to-br from-[#241f2b] to-[#0d0c10] border border-white/10 flex items-center justify-center">
+                <span className="font-serif italic text-7xl text-[#efe7d7]/15">R&amp;F</span>
+              </div>
+            )}
             <div>
               <Eyebrow>RENDA &amp; FILHO</Eyebrow>
               <h2 className="font-serif text-3xl md:text-4xl mb-8" style={{ lineHeight: 1.15 }}>
@@ -382,20 +387,20 @@ export default function FamiliaRenda() {
           </div>
           <div className="grid md:grid-cols-3 gap-4 mb-10">
             <figure className="md:col-span-2">
-              <img src={PHOTO_H1} alt="Casal em frente a um prédio histórico no centro de São Paulo" className="w-full aspect-[4/3] object-cover rounded-lg mb-3" />
-              <figcaption className="text-sm text-[#8f897c]">Bruno e Denise, no centro histórico de São Paulo</figcaption>
+              <img src={PHOTO_H1} alt="Casal sorrindo em meio à lavanda ao pôr do sol" className="w-full aspect-[4/3] object-cover rounded-lg mb-3" style={{ objectPosition: "50% 40%" }} />
+              <figcaption className="text-sm text-[#8f897c]">Caio e Hariza, ensaio entre a lavanda</figcaption>
             </figure>
             <figure>
-              <img src={PHOTO_H2} alt="Cachorro vestido para o casamento, no colo da noiva" className="w-full aspect-[3/4] object-cover rounded-lg mb-3" />
-              <figcaption className="text-sm text-[#8f897c]">Letícia e Thiago: os detalhes que ninguém coloca no roteiro</figcaption>
+              <img src={PHOTO_H2} alt="Silhueta de casal dançando no pôr do sol" className="w-full aspect-[3/4] object-cover rounded-lg mb-3" style={{ objectPosition: "50% 70%" }} />
+              <figcaption className="text-sm text-[#8f897c]">Eduardo e Michelle, a última luz do dia</figcaption>
             </figure>
             <figure>
-              <img src={PHOTO_H3} alt="Bebê sorrindo em um banco de igreja" className="w-full aspect-[3/4] object-cover rounded-lg mb-3" />
-              <figcaption className="text-sm text-[#8f897c]">Um dos capítulos seguintes: a família reunida</figcaption>
+              <img src={PHOTO_H3} alt="Retrato colorido de mulher com pó holi" className="w-full aspect-[3/4] object-cover rounded-lg mb-3" style={{ objectPosition: "50% 30%" }} />
+              <figcaption className="text-sm text-[#8f897c]">Bruno e Denise, um ensaio cheio de cor</figcaption>
             </figure>
             <figure className="md:col-span-2">
-              <img src={PHOTO_H4} alt="Bebê sentado diante de um altar" className="w-full aspect-[4/3] object-cover rounded-lg mb-3" />
-              <figcaption className="text-sm text-[#8f897c]">Outra celebração em família</figcaption>
+              <img src={PHOTO_H4} alt="Casal em contraluz, com o sol entre os dois" className="w-full aspect-[4/3] object-cover rounded-lg mb-3" style={{ objectPosition: "50% 50%" }} />
+              <figcaption className="text-sm text-[#8f897c]">Ademir e Maria Carolina, em contraluz</figcaption>
             </figure>
           </div>
           <Cta outline>Conheça algumas delas</Cta>

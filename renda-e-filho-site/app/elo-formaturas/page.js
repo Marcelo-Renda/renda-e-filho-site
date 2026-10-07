@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 
 const PHOTO_HERO =
-  "https://lh3.googleusercontent.com/d/1TvArMOepXoMTn55gpDZ3xU-sTCj7619z=w1600";
+  "https://lh3.googleusercontent.com/d/1egKvGey7Wtz_-z9F_p_7j-YXZyR40Y8o=w1800";
 const PHOTO_1 =
   "https://lh3.googleusercontent.com/d/12pBowFz4Il4dyDaci_RBZVKSh4iyGtZr=w900";
 const PHOTO_2 =
@@ -498,10 +498,10 @@ export default function EloFormaturas() {
             a escrever sua própria história, talvez esse seja o sinal de
             que começamos do jeito certo.
           </p>
-          <div className="grid md:grid-cols-3 gap-4 mb-10">
-            <img src={PHOTO_1} alt="Colégio Êxitus, formatura Elo" className="w-full aspect-[3/4] object-cover rounded-lg" />
-            <img src={PHOTO_2} alt="Colégio Êxitus, formatura Elo" className="w-full aspect-[3/4] object-cover rounded-lg" />
-            <img src={PHOTO_3} alt="Colégio Êxitus, formatura Elo" className="w-full aspect-[3/4] object-cover rounded-lg" />
+          <div className="grid md:grid-cols-2 gap-4 mb-10">
+            <img src={PHOTO_2} alt="Formanda do Colégio Êxitus com o canudo, formatura Elo" className="w-full aspect-[4/5] object-cover rounded-lg" style={{ objectPosition: "50% 30%" }} />
+            <img src={PHOTO_3} alt="Formanda do Colégio Êxitus com o canudo, formatura Elo" className="w-full aspect-[4/5] object-cover rounded-lg" style={{ objectPosition: "50% 30%" }} />
+            <img src={PHOTO_1} alt="Turma do Colégio Êxitus reunida na cerimônia, formatura Elo" className="md:col-span-2 w-full aspect-[16/8] object-cover rounded-lg" style={{ objectPosition: "50% 60%" }} />
           </div>
           <p className="text-sm text-[#7FA8B8]">Colégio Êxitus, primeira formatura Elo, 2025</p>
           <p className="font-serif text-xl md:text-2xl text-white mt-10">
